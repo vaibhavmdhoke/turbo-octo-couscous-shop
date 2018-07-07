@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  balance_points: 1.5
+  first_name: MyString
+  last_name: MyString
+  provided_customer_id: 1
+  shop: 
+
+two:
+  email: MyString
+  balance_points: 1.5
+  first_name: MyString
+  last_name: MyString
+  provided_customer_id: 1
+  shop: 
