@@ -5,9 +5,8 @@ module ShopifyApp
     class ShopifyApp::MissingWebhookJobError < StandardError; end
 
     def receive
-      # binding.pry
       params.permit!
-      job_args = {shop_domain: 'shop_domain', webhook: webhook_params.to_h}
+      job_args = { shop_domain: shop_domain, webhook: webhook_params.to_h }
       webhook_job_klass.perform_later(job_args)
       head :no_content
     end
@@ -16,6 +15,15 @@ module ShopifyApp
 
     def webhook_params
       params.except(:controller, :action, :type)
+    end
+
+    #
+    # Check shop domain from headers
+    #
+    #
+    # 
+    def shop_domain
+      request.headers.env['HTTP_X_SHOPIFY_SHOP_DOMAIN']
     end
 
     def webhook_job_klass

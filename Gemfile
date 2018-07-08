@@ -40,10 +40,12 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'pry'
   gem 'awesome_print'
+  gem 'letter_opener'
   gem 'selenium-webdriver'
 end
 
 group :development do
+  gem 'letter_opener_web'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
