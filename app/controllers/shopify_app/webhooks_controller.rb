@@ -21,7 +21,7 @@ module ShopifyApp
     # Check shop domain from headers
     #
     #
-    # 
+    #
     def shop_domain
       request.headers.env['HTTP_X_SHOPIFY_SHOP_DOMAIN']
     end

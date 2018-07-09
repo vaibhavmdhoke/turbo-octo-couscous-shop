@@ -5,24 +5,31 @@
     });
   </script>
 <% end %>
-<h2>Products</h2>
-
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
-  <% end %>
-</ul>
+<label> Reward Per Dollar Spent: </label><input type="number" id="reward_value" name="reward_per_dollar" min="1" max="100" pattern="[0-9]*"> 
+<button id="saveRewardPerDollar"> Save </button>
 
 <hr>
 
-<h2>Webhooks</h2>
-
-<% if @webhooks.present? %>
-  <ul>
-    <% @webhooks.each do |webhook| %>
-      <li><%= webhook.topic %> : <%= webhook.address %></li>
+<% if @customers.present? %>
+  <%= will_paginate @customers %>
+  <table style="width:50%" class="centered">
+    <tr>
+      <th>Name</th>
+      <th>Email</th> 
+      <th>Points Balance</th>
+    </tr>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.full_name %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.balance_points.round(2) %></td>
+      </tr>
     <% end %>
-  </ul>
+  </table>  
 <% else %>
-  <p>This app has not created any webhooks for this Shop. Add webhooks to your ShopifyApp initializer if you need webhooks</p>
+  <p>You do not have any customers in in this app.</p>
 <% end %>
+
+<!-- 
+  <div id="snackbar"> Successfully Updated </div>
+ -->

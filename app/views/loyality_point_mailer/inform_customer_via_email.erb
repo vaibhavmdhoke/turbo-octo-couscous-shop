@@ -43,7 +43,7 @@
     Hi <%= @customer.full_name%>, 
     </br>
     </br>
-    You earned <%=@customer.previous_order_points%> points on your last order. You now have balance of <%= @customer.balance_points%> points
+    You earned <%=@customer.previous_order_points.round(2)%> points on your last order. You now have balance of <%= @customer.balance_points.round(2)%> points
   
 </p>
             
