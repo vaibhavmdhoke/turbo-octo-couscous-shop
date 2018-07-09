@@ -140,6 +140,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>TODO: Filter params.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -178,15 +202,68 @@
 3
 4
 5
-6</pre>
+6
+7
+8</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/home_controller.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
-	<span class='comment'># binding.pry
-</span>  <span class='ivar'>@products</span> <span class='op'>=</span> <span class='const'>ShopifyAPI</span><span class='op'>::</span><span class='const'>Product</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span> <span class='label'>limit:</span> <span class='int'>10</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@webhooks</span> <span class='op'>=</span> <span class='const'>ShopifyAPI</span><span class='op'>::</span><span class='const'>Webhook</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span>
+  <span class='comment'># @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
+</span>  <span class='comment'># @webhooks = ShopifyAPI::Webhook.find(:all)
+</span>  <span class='id identifier rubyid_domain'>domain</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:shop</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_shop'>shop</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Shop.html" title="Shop (class)">Shop</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>shopify_domain:</span> <span class='id identifier rubyid_domain'>domain</span><span class='rparen'>)</span>
+  <span class='ivar'>@customers</span> <span class='op'>=</span> <span class='id identifier rubyid_shop'>shop</span><span class='period'>.</span><span class='id identifier rubyid_customer_loyality_points'>customer_loyality_points</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>TODO: Filter params</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/home_controller.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
+  <span class='id identifier rubyid_domain'>domain</span> <span class='op'>=</span> <span class='id identifier rubyid_shop_domain'>shop_domain</span>
+  <span class='id identifier rubyid_shop'>shop</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Shop.html" title="Shop (class)">Shop</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>shopify_domain:</span> <span class='id identifier rubyid_domain'>domain</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_shop'>shop</span><span class='period'>.</span><span class='id identifier rubyid_points_per_spent'>points_per_spent</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:reward_per_dollar</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_shop'>shop</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span> <span class='label'>success:</span> <span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -198,7 +275,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jul  7 15:36:17 2018 by
+  Generated on Mon Jul  9 20:41:03 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.14 (ruby-2.4.1).
 </div>

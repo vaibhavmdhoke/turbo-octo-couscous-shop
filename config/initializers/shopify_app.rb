@@ -7,6 +7,7 @@ ShopifyApp.configure do |config|
   config.after_authenticate_job = false
   config.session_repository = Shop
 
+  # https://young-headland-58413.herokuapp.com/webhooks/order_create
   config.webhooks = [
     { topic: 'orders/create', address: 'https://young-headland-58413.herokuapp.com/webhooks/order_create', format: 'json' }
   ]

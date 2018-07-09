@@ -168,16 +168,14 @@
 9
 10
 11
-12
-13</pre>
+12</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/shopify_app/webhooks_controller.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_receive'>receive</span>
-  <span class='comment'># binding.pry
-</span>  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_permit!'>permit!</span>
-  <span class='id identifier rubyid_job_args'>job_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>shop_domain:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>shop_domain</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>webhook:</span> <span class='id identifier rubyid_webhook_params'>webhook_params</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_permit!'>permit!</span>
+  <span class='id identifier rubyid_job_args'>job_args</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>shop_domain:</span> <span class='id identifier rubyid_shop_domain'>shop_domain</span><span class='comma'>,</span> <span class='label'>webhook:</span> <span class='id identifier rubyid_webhook_params'>webhook_params</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_webhook_job_klass'>webhook_job_klass</span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span><span class='lparen'>(</span><span class='id identifier rubyid_job_args'>job_args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_head'>head</span> <span class='symbol'>:no_content</span>
 <span class='kw'>end</span></pre>
@@ -191,7 +189,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jul  7 15:36:17 2018 by
+  Generated on Mon Jul  9 20:41:03 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.14 (ruby-2.4.1).
 </div>
