@@ -1,7 +1,7 @@
 #
-# Class LoyalityPointMailer provides info to customer on their loyality Points
+# Class LoyalityPointMailer provides info to customer as email on their loyality Points
 # after each purchase   
-# @author Joe Blog <Joe.Blog@nowhere.com>
+# @author Vaibhav Dhoke <vmdhoke@gmail.com>
 #
 class LoyalityPointMailer < ApplicationMailer
   #

@@ -1,16 +1,20 @@
 #
-# Class LoyalityPoint provides Loyality Points for each customer 
-# TODO: uniq email migration 
+# Class LoyalityPoint provides Loyality Points for each customer
 # @author <vmdhoke@gmail.com>
 #
 module Customer
+  #
+  # Class LoyalityPoint provides saving of data into db
+  #
+  # @author Vaibhav Dhoke <vmdhoke@gmail.com>
+  #
   class LoyalityPoint < ApplicationRecord
     belongs_to :shop
     after_save :send_loyality_points_email
     self.per_page = 10
 
     def full_name
-      "#{first_name} #{last_name}" 
+      "#{first_name} #{last_name}"
     end
 
     #

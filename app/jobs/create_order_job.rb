@@ -1,17 +1,12 @@
 #
-# Class CreateOrderJob does job of updating loyality points and save record
-# => based on customer id which we get from shopify as customer_id
-# @author  <vmdhoke@gmail.com>
+# Class CreateOrderJob does job of updating loyality points and save record based on customer id which we get from shopify as customer_id
+# @author Vaibhav Dhoke  <vmdhoke@gmail.com>
 #
 class CreateOrderJob < ActiveJob::Base
   #
   # Create job from webhook, add entry in db
   ### spent per $ as per requirement
   #
-  # @param [<type>] shop_domain: <description>
-  # @param [<type>] webhook: <description>
-  #
-  # @return [<type>] <description>
   #
   def perform(shop_domain:, webhook:)
     shop = Shop.find_by(shopify_domain: shop_domain)
