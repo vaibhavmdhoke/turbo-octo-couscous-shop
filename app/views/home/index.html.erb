@@ -5,8 +5,13 @@
     });
   </script>
 <% end %>
-<label> Reward Per Dollar Spent: </label><input type="number" id="reward_value" name="reward_per_dollar" min="1" max="100" pattern="[0-9]*"> 
-<button id="saveRewardPerDollar"> Save </button>
+<label> Reward Per Dollar Spent: </label>
+  <input type="number" id="reward_value" name="reward_per_dollar" min="1" max="100" pattern="[0-9]*"/>
+<button id="saveRewardPerDollar" class="reward-button"> Save </button>
+
+  <i style="font-size:24px" class="fa tooltip">&#xf05a;
+    <span class="tooltiptext">Default value for Reward per Dollar spent is 1 </span>
+  </i>
 
 <hr>
 

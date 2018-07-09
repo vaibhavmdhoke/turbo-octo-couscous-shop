@@ -1,6 +1,5 @@
 $(document).ready ->
   $('#saveRewardPerDollar').on 'click', ->
-    console.log '>>>>>>>>>>>'
     value = $('#reward_value').val()
     console.log value
     $.ajax
@@ -13,11 +12,5 @@ $(document).ready ->
         success_value = response.success
         if success_value
           alert(' Successfully Updated')
-          $('#snackbar').text('Successfully Updated')
         else
           alert(' Error In Updation Updated')
-          $('#snackbar').text('Error In Updation')
-        $('#snackbar').addClass('show')
-        setTimeout(->
-          $('#snackbar').removeClass('show')
-        3000)

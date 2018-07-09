@@ -4,7 +4,11 @@ class HomeController < ShopifyApp::AuthenticatedController
     # @webhooks = ShopifyAPI::Webhook.find(:all)
     domain = params[:shop]
     shop = Shop.find_by(shopify_domain: domain)
-    @customers = shop.customer_loyality_points.paginate(page: params[:page])
+    if shop
+      @customers = shop.customer_loyality_points.paginate(page: params[:page])
+    else
+      @customers = nil
+    end
   end
 
   ## TODO: Filter params
