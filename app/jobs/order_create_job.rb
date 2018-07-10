@@ -1,5 +1,6 @@
 #
-# Class CreateOrderJob does job of updating loyality points and save record based on customer id which we get from shopify as customer_id
+# Class OrderCreateJob does job of updating loyality points and save record
+#  based on customer id which we get from shopify as customer_id
 # @author Vaibhav Dhoke  <vmdhoke@gmail.com>
 #
 class OrderCreateJob < ActiveJob::Base
@@ -25,7 +26,6 @@ class OrderCreateJob < ActiveJob::Base
     initialize_customer_data(loyality_customer, customer, points_earned)
   end
 
-  ## TODO: Check after refactoring
 
   def initialize_customer_data(loyality_customer, customer, points_earned)
     loyality_customer.email = customer[:email]
