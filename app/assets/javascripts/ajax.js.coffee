@@ -1,6 +1,6 @@
 $(document).ready ->
-  $('#saveRewardPerDollar').on 'click', ->
-    value = $('#reward_value').val()
+  $('#save-reward-per-dollar').on 'click', ->
+    value = $('#reward-value').val()
     console.log value
     $.ajax
       url: '/update_reward/'
@@ -11,6 +11,7 @@ $(document).ready ->
         console.log(response)
         success_value = response.success
         if success_value
+          $('#point-per-spent').html(value)
           alert(' Successfully Updated')
         else
           alert(' Error In Updation Updated')

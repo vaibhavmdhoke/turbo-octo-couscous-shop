@@ -1,11 +1,11 @@
-class HomeController < ShopifyApp::AuthenticatedController
+class ShopsController < ShopifyApp::AuthenticatedController
   def index
     # @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
     # @webhooks = ShopifyAPI::Webhook.find(:all)
     domain = params[:shop]
-    shop = Shop.find_by(shopify_domain: domain)
-    if shop
-      @customers = shop.customer_loyality_points.paginate(page: params[:page])
+    @shop = Shop.find_by(shopify_domain: domain)
+    if @shop
+      @customers = @shop.customer_loyality_points.paginate(page: params[:page])
     else
       @customers = nil
     end
