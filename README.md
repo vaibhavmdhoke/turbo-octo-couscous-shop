@@ -3,22 +3,11 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Use Ngrok to tunnel your app if you want to tunnel it, you can use the email opener in development version to verify emails
 
-* Ruby version
+Install the app in your shopify app, set the reward point as you want, the default Reward per dollar is 1
 
-* System dependencies
+After you install the app, only then after each purchase the data will be saved in the reward points app.
+ 
+This app will not sync the previous orders before installing but will sync only the purchase that will  be made after installing this app
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
