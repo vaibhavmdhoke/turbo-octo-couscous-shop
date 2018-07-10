@@ -2,7 +2,7 @@
 # Class CreateOrderJob does job of updating loyality points and save record based on customer id which we get from shopify as customer_id
 # @author Vaibhav Dhoke  <vmdhoke@gmail.com>
 #
-class CreateOrderJob < ActiveJob::Base
+class OrderCreateJob < ActiveJob::Base
   #
   # Create job from webhook, add entry in db
   ### spent per $ as per requirement
